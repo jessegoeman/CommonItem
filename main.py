@@ -4,10 +4,21 @@ string = "De Clippeleer Jessika	B, L, T, V	Alternatieve (pseudo)granen voor de p
 regex = "(.*?)B, L, T, V	(.*?)   	view"
 subj_list = re.findall(regex,string)
 
-personen = ["jesse","lau","len","4e"]
 jesse, lau, lenn, pieter =  [0,0,0,1,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,1,0,1,1,0,0,1,0],[0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,1,0],[0,0,1,1,1,1,1,0,0,1,0,1,0,0,0,1,0,0,1,0,0,0,1,0,0,1,1,0],[0,0,1,1,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0]
 
 for j in range(28):
     if jesse[j] + lau[j] + lenn[j] + pieter[j] >= 3:
         with open("test.txt","a+") as f:
             f.write(" - ".join(subj_list[j])+"\n")
+
+
+proj = []
+with open("test.txt","r+") as k:
+    for line in k:
+        proj.append(line.strip('\n'))
+
+pj,pl,pla,pp = [4,3,2,0,1],[4,3,2,0,1],[4,3,2,0,1],[4,1,3,0,2] #higher means better
+new = [(pj[t]+pl[t]+pla[t]+pp[t]) for t in range(len(pj))]
+
+
+
